@@ -1,38 +1,224 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --raisin-black: hsl(240, 20%, 17%);
+  --silver-chalice: hsl(0, 0%, 67%);
+  --blue-jeanse: hsl(202, 100%, 50%);
+  --dark-blue-jeanse: hsl(202, 100%, 16%);
+  --white: hsl(0, 0%, 100%);
+  --xiketic: hsl(240, 21%, 9%);
+  --xiketic-black: hsl(240, 22%, 10%);
+  --space-cadet: hsl(220, 37%, 21%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  outline: none;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
+img,
+span,
+ion-icon,
+a {
+  display: block;
+}
+
+.container {
+  max-width: 100%;
   min-height: 100vh;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: var(--xiketic-black);
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-rotate-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: linear-gradient(
+    110deg,
+    var(--blue-jeanse),
+    var(--dark-blue-jeanse)
+  );
+  transform-origin: top left;
+  transition: all 0.5s ease;
+}
+
+.wrapper:hover .card-rotate-bg {
+  transform: rotate(2deg) translateY(5px);
+}
+
+body {
+  position: relative;
+  background: var(--raisin-black);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.card:hover .product-img {
+  transform: scale(1);
+}
+
+.card:hover .bid-btn {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.card-head {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card-head .product-img {
+  width: 100%;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+.card-head .bid-btn {
+  position: absolute;
+  background: var(--blue-jeanse);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.card-head .bid-btn:hover {
+  background: var(--raisin-black);
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-body .product-name {
+  margin-bottom: 5px;
+}
+
+.card-body .product-name a {
+  color: var(--white);
+  transition: all 0.25s ease;
+}
+
+.card-body .product-name a:hover {
+  color: var(--blue-jeanse);
+}
+
+.card-body .latest-bid {
+  color: var(--silver-chalice);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.wrapper-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper-flex.mb {
+  margin-bottom: 15px;
+}
+
+.wrapper-flex .last-bid {
+  color: var(--blue-jeanse);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wrapper-flex .react {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--silver-chalice);
+  transition: all 0.25s ease;
+}
+
+.wrapper-flex .react:hover {
+  background: var(--blue-jeanse);
+  color: var(--white);
+}
+
+.wrapper-flex .react ion-icon {
+  --ionicon-stroke-width: 50px;
+  font-size: 14px;
+  margin-right: 3px;
+}
+
+.wrapper-flex .react span {
+  font-size: 12px;
+}
+
+.bid-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bid-info .img-box {
+  display: flex;
+  padding-left: 10px;
+}
+
+.bid-info .img-box img {
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 0;
+  margin-left: -10px;
+  border: 2px solid var(--xiketic);
+}
+
+.bid-info a {
+  color: var(--silver-chalice);
+  font-size: 13px;
+  transition: all 0.25s ease;
+}
+
+.bid-info a:hover {
+  color: var(--blue-jeanse);
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+.share-btn:hover {
+  background: var(--space-cadet);
+}
+.share-btn ion-icon {
+  color: var(--silver-chalice);
 }
